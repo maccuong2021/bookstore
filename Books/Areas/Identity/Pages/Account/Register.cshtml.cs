@@ -156,7 +156,7 @@ namespace Books.Areas.Identity.Pages.Account
                 {
                     Text = i,
                     Value = i
-                }).Where(r => r.Value.Equals(Roles.RoleType.Company.ToString()) || r.Value.Equals(Roles.RoleType.Individual.ToString())),
+                }).Where(r => r.Value.Equals(Roles.RoleType.Employee.ToString()) ||  r.Value.Equals(Roles.RoleType.SuperAdmin.ToString()) || r.Value.Equals(Roles.RoleType.Admin.ToString()) || r.Value.Equals(Roles.RoleType.Company.ToString()) || r.Value.Equals(Roles.RoleType.Individual.ToString())),
 
                 Companies = companies.Select(i => new SelectListItem
                 {
@@ -234,7 +234,7 @@ namespace Books.Areas.Identity.Pages.Account
                         callbackUrl
                         );
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email", messageBody);
+                 //   await _emailSender.SendEmailAsync(Input.Email, "Confirm your email", messageBody);
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
